@@ -1,4 +1,4 @@
-package firstLessons;
+package thirdLessons;
 
 public class Variables {
     // Main driver method
