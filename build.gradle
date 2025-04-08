@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
+    id 'io.freefair.lombok' version '8.3'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'org.example'
@@ -14,6 +16,14 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    implementation files('build/libs/shaded-logging-1.0-SNAPSHOT-all.jar')
 }
 
 test {
@@ -21,4 +31,11 @@ test {
 }
 kotlin {
     jvmToolchain(17)
+}
+jar {
+    archiveBaseName.set("shaded-logging")
+}
+
+tasks.shadowJar {
+    relocate("org.slf4j", "custom.slf4j")
 }

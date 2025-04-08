@@ -1,10 +1,18 @@
-package sixthLesson.arrays;
+package Collections.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class ArraysAndCollections {
     public static void main (String[] args) {
+
+        int capacity = 1;
+        ArrayList<String> elements = new ArrayList<>(capacity);
+        elements.add("Hello");
+        elements.add("World");
+        System.out.println("Look here" + Arrays.toString(elements.toArray()));
 
         int[] arr = new int[ 5 ];
         arr[ 0 ] = 10;
@@ -13,7 +21,7 @@ public class ArraysAndCollections {
         arr[ 3 ] = 40;
         arr[ 4 ] = 50;
 
-        System.out.println (Arrays.stream (arr).toArray ());
+        System.out.println (Arrays.stream (arr).toArray());
 
         int[] arr1 = { 10, 20, 30, 40, 50 };
 

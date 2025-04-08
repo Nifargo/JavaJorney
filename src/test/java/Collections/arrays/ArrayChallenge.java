@@ -1,4 +1,4 @@
-package sixthLesson.arrays;
+package Collections.arrays;
 
 import java.util.Arrays;
 import java.util.Random;

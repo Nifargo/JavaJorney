@@ -1,4 +1,4 @@
-package sixthLesson.arraysList;
+package Collections.arraysList;
 
 import java.util.ArrayList;
 import java.util.Comparator;
